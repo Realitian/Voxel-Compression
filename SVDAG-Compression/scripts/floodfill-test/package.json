@@ -1,0 +1,17 @@
+{
+  "name": "floodfill-test",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc -w",
+    "start": "http-server"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^3.9.5",
+    "http-server": "^0.12.3"
+  }
+}

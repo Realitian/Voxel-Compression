@@ -1,0 +1,27 @@
+/*! 
+\mainpage Spaceland documentation
+
+\section license License
+
+Copyright (c) 1993-2005 by Enrico Gobbetti.
+
+Copyright (c) 1996-2005 by CRS4.
+
+\section intro Introduction
+
+sl is a set of C++ classes that support
+geometric computation. See individual 
+class documentation for more info.
+
+\section history History 
+
+<ul>
+<li>1993 - sl 1.0, first version in Eiffel 2.3
+<li>1995 - sl 2.0, first version in C++, cpp macros to emulate templates
+<li>1996 - sl 3.0, templates for supporting genericity
+<li>2000 - sl 4.0, ISO C++ features, autoconf 
+<li>2005 - sl 5.0, gentoo ebuild compatibility
+<li>2010 - sl 6.0, cmake build system
+</ul>
+
+*/

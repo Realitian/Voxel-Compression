@@ -1,0 +1,22 @@
+-*- text -*-
+======================================================================
+  This file is part of the SL software library.
+
+    Copyright (C) 1993-2002 by Enrico Gobbetti (gobbetti@crs4.it)
+    Copyright (C) 1996-2002 by CRS4, Cagliari, Italy.
+
+  For more information, visit the CRS4 Visualization and Virtual 
+  Reality Group web pages at http://www.crs4.it/vvr/.
+======================================================================
+
+SL README
+=========
+
+sl is a set of C++ classes that support
+geometric computation. See INSTALL file
+for installation instructions and see 
+individual class documentation for 
+more info.
+
+Enjoy.
+

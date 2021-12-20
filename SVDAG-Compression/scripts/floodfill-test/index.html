@@ -1,0 +1,44 @@
+<head>
+  <style>
+    body {
+      margin: 0;
+      background: gray;
+    }
+
+    #canvas-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      /* height: 100%; */
+      /* padding-top: 32px; */
+    }
+
+    #canvas {
+      /* width: 600px;
+      height: 600px; */
+      display: inline-block;
+      outline: 1px solid black;
+      margin: 32px;
+    }
+    
+    #canvas-graph {
+      margin: auto;
+      display: inline-block;
+      outline: 1px solid black;
+      margin: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="canvas-wrapper">
+    <div id="toolbox">
+      <button onClick="handleFloodFill()">Flood fill!</button>
+      <span>Click anywhere to place nodes. Ctrl+click to select & view neighbors</span>
+    </div>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas-graph"></canvas>
+  </div>
+
+  <script src="build/main.js" type="module"></script>
+</body>

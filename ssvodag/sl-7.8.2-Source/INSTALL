@@ -1,0 +1,189 @@
+SL Installation
+===============
+
+Like most GNU software, SL must be configured before it can be built. 
+
+This page describes how to build and install SL. It covers both the
+release and the development versions. Also, it covers both Unix/Linux
+systems as well as Windows.
+
+The SL build process requires CMake version 2.6.0 or higher and a
+working compiler. On Unix-like operating systems, it also requires
+make, while on Windows it requires Visual Studio.
+
+The installation procedure itself is broken into five steps.
+
+   1. Dependencies
+   2. Configuring
+   3. Building
+   4. Testing (optional)
+   5. Installing 
+
+1. Dependencies
+-------------------------
+
+SL depends on:
+
+cmake 
+Homepage: http://www.cmake.org/ 
+Description: Cross platform Make
+
+doxygen (only for doc generation) 
+Homepage: http://www.doxygen.org/
+Description: documentation system for C++, C, Java, Objective-C,
+Python, IDL, and other languages
+
+make (only for Unix/Linux)
+Homepage: http://www.gnu.org/software/make/make.html
+Description: Standard tool to compile source trees
+
+Visual Studio C++ 2008 Express or other Visual Studio Edition (only for Windows)
+Homepage: http://www.microsoft.com/Express/vc
+Description: Microsoft free development tools
+
+2. Configuring
+--------------
+
+In the following we use: "srcdir" to refer to the toplevel source
+directory for SL; "objdir" to refer to the build directory.
+
+2.1 Unix/Linux
+
+You can configure SL via cmake:
+
+  % cd objdir
+  % cmake [options] srcdir
+
+  where options can include:
+
+    -DSL_DOC=ON/OFF
+
+      configure the package to build the 
+      documentation (via Doxygen)     
+      [default is OFF]
+
+    -DSL_TEST=ON/OFF
+
+      configure the package to build the 
+      testsuite & benchmark apps     
+      [default is ON]
+
+    -DCMAKE_INSTALL_PREFIX=PREFIX
+
+      install architecture-independent files in PREFIX
+      [default is /usr/local] 
+
+    -DCMAKE_BUILD_TYPE=TYPE (only for Linux)
+
+      control the type of build when using a single-configuration
+      generator like the Makefile generator. CMake will create by
+      default the following variables when using a
+      single-configuration generator:
+
+      * None (CMAKE_C_FLAGS or CMAKE_CXX_FLAGS used)
+      * Debug (CMAKE_C_FLAGS_DEBUG or CMAKE_CXX_FLAGS_DEBUG)
+      * Release (CMAKE_C_FLAGS_RELEASE or CMAKE_CXX_FLAGS_RELEASE)
+      * RelWithDebInfo (CMAKE_C_FLAGS_RELWITHDEBINFO or 
+                        CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+      * MinSizeRel (CMAKE_C_FLAGS_MINSIZEREL or 
+                    CMAKE_CXX_FLAGS_MINSIZEREL) 
+
+      You can use these default compilation flags (or modify them) by
+      setting the CMAKE_BUILD_TYPE variable at configuration time from
+      within the "ccmake" GUI. Note! 
+
+      If you are using the Makefile generator, you can create your own
+      build type like this:
+
+        SET(CMAKE_BUILD_TYPE distribution)
+        SET(CMAKE_CXX_FLAGS_DISTRIBUTION "-O3") 
+        SET(CMAKE_C_FLAGS_DISTRIBUTION "-O3") 
+      
+      [default is "Release"]
+
+Other useful cmake variables are here:
+http://www.cmake.org/Wiki/CMake_Useful_Variables 
+
+2.2 Windows
+
+Open the CMake GUI from the Start menu.  The top two entries are the
+source code and binary directories. They allow you to specify where
+the source code is for what you want to compile and where the
+resulting binaries should be placed. You should set these two values
+first. If the binary directory you specify does not exist, it will be
+created for you. The cmake generator option allows you to select which
+type of build files are generated (select the release of VisualStudio
+installed on your machine).
+
+Click on "Configure", set the additional option flags and press "Configure"
+again. Leave the GUI open and read the next step below (Building).
+
+3. Building
+-----------
+
+Now that SL is configured, you are ready to build the SL library and
+testing programs. We highly recommend that SL be built using GNU make; 
+other versions may work, then again they might not. 
+
+3.1 Unix/Linux
+
+To build the library, simply type:
+
+  % cd objdir; make
+
+To build the documentation (SL_DOC must be ON), simply type:
+
+  % cd objdir; make doc
+
+3.2 Windows
+
+On the CMake GUI, press "Generate" to create the build files.
+
+Double-click on the "sl solution" file in the build directory.  This
+will open the VisualStudio GUI. Select the "Solution Configuration"
+(Debug/Release) and then click on Build and compile the library (the
+target ALL_BUILD will be compiled)
+
+To build the documentation (SL_DOC must be ON), right-click on the "doc" target 
+and select "Build".
+  
+4. Testing (optional)
+---------------------
+
+A specific cmake option (SL_TEST) can enable/disable the compilation
+of the testsuite & benchmark apps. SL_TEST is set to ON by default.
+
+4.1 Unix/Linux
+
+Before you install SL, we encourage you to compile and 
+run the testsuites. To do so, simply type:
+
+  % cd objdir; make test
+
+If everything works, the testsuite will report N/N tests passed. 
+
+You may also optionally test the performance of your machine
+by running the benchmark suite. To do so, simply type
+
+  % cd objdir
+  % ./sl_<BENCHMARK_PROGS>
+
+4.2 Windows
+
+Right-click on the RUN_TESTS target and select "Build": a test session will be performed. 
+
+5. Installing
+-------------
+
+5.1 Unix/Linux
+
+Now that SL has been built (and optionally tested), you can install it with:
+
+  % cd objdir; make install
+
+5.2 Windows
+
+Right-click on the INSTALL target and select "Build".
+SL will be installed in "C:\Program Files\sl"
+
+Enjoy.

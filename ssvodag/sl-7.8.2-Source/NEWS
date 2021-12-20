@@ -1,0 +1,8 @@
+ViC SL NEWS file
+
+2010 - sl 6.0, cmake build system
+2005 - sl 5.0, gentoo ebuild compatibility
+2000 - sl 4.0, ISO C++ features, autoconf 
+1996 - sl 3.0, templates for supporting genericity
+1995 - sl 2.0, first version in C++, cpp macros to emulate templates
+1993 - sl 1.0, first version in Eiffel 2.3
